@@ -18,13 +18,16 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from upload import urls as upload_urls
 from pdf import views as pdf_views
+from upload.views import upload_file
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^paint/$',pdf_views.paint_board)
+    url(r'^paint/$',pdf_views.paint_board,name='paint'),
+    url(r'^upload/$', upload_file,name='upload'),
 ]
 
 # upload app
-urlpatterns += upload_urls.urlpatterns
+#urlpatterns += upload_urls.urlpatterns
 
 
