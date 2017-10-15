@@ -2,11 +2,11 @@
 
 from django.conf.urls import url, include
 from django.contrib import admin
-from views import upload_file
+from upload.views import upload_file
 
 
 urlpatterns = [
-    url(r'^upload/', upload_file),
+    url(r'^upload/$', upload_file),
 ]
 
 

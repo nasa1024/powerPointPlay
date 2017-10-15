@@ -17,13 +17,14 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from upload import urls as upload_urls
-from views import home_page
+from pdf import views as pdf_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home_page),
+    url(r'^paint/$',pdf_views.paint_board)
 ]
 
 # upload app
 urlpatterns += upload_urls.urlpatterns
+
 

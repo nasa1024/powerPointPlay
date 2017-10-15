@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'upload.apps.UploadConfig'
+    'upload.apps.UploadConfig',
+
+    'pdf',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +82,7 @@ DATABASES = {
         'NAME': 'record',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'hzh970224',
+        'PASSWORD': 'password',
         'PORT': 3306,
     }
 }
@@ -124,16 +126,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "common_static"),
+#STATICFILES_DIRS = (
+ #   os.path.join(BASE_DIR, "static"),
     # '/path/to/others/static/',  # 用不到的时候可以不写这一行
-)
+#)
 
-STATICFILES_FINDERS = (
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder"
-)
+#STATICFILES_FINDERS = (
+#    "django.contrib.staticfiles.finders.FileSystemFinder",
+#    "django.contrib.staticfiles.finders.AppDirectoriesFinder"
+#)
 
 # 上传文件保存路径
