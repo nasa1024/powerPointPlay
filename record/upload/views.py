@@ -37,3 +37,6 @@ def handle_uploaded_file(f):
         for chunk in f.chunks():
             destination.write(chunk)
 
+def paint_board(request):
+    return render(request, 'paintBoard.html')
+

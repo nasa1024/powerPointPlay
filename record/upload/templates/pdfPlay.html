@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/pdf.js"></script>
+</head>
+<body>
+
+<!--h1>PDF PLAY</h1-->
+
+<div id="titlelocal">
+  <button id="prev">Previous</button>
+  <button id="next">Next</button>
+  &nbsp; &nbsp;
+  <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+</div>
+
+<div id="pdflocal">
+<canvas id="canvas"></canvas>
+</div>
+</body>
+<script src="../static/js/pdfmain.js"></script>
+<style>
+    #canvas {
+        border:5px solid #4444;
+}
+    #titlelocal{
+        text-align: center;
+    }
+    #pdflocal{
+        text-align: center;
+    }
+</style>
+
+</html>

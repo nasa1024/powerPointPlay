@@ -16,18 +16,17 @@ Including another URLconf
 
 from django.conf.urls import url, include
 from django.contrib import admin
-from upload import urls as upload_urls
-from pdf import views as pdf_views
-from upload.views import upload_file
+#from upload.views import upload_file
+from upload import views as up_views
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^paint/$',pdf_views.paint_board,name='paint'),
-    url(r'^upload/$', upload_file,name='upload'),
+    url(r'^paint/$',up_views.paint_board,name='paint'),
+    url(r'^upload/$', up_views.upload_file,name='upload'),
 ]
 
 # upload app
 #urlpatterns += upload_urls.urlpatterns
-
+#name作用是在ｈｔｍｌ中增加路由可以使用　｛％　ｕｒｌ　‘ｎａｍｅ’　％｝访问其他的ｕｒｌ
 
