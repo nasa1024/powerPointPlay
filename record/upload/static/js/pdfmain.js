@@ -1,10 +1,10 @@
 // If absolute URL from the remote server is provided, configure the CORS
 // header on that server.
 //在这里传入ｐｄｆ的路径交给ｊｓ解决
-var url = 'a.pdf';
+var url = '/static/a.pdf';
 
 // The workerSrc property shall be specified.
-PDFJS.workerSrc = '../static/js/pdf.worker.js';
+PDFJS.workerSrc = '/static/js/pdf.worker.js';
 
 var pdfDoc = null,
     pageNum = 1,

@@ -2,14 +2,10 @@
 from __future__ import unicode_literals
 from django.http import HttpResponse
 from upload.forms import FileUploadForms
-from django.shortcuts import render_to_response
 from django.shortcuts import render
-# from django.template import RequestContext
-import os
-from django.core.urlresolvers import reverse
-from django.shortcuts import redirect
-
-
+#import os
+#from django.core.urlresolvers import reverse
+#from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -39,4 +35,7 @@ def handle_uploaded_file(f):
 
 def paint_board(request):
     return render(request, 'paintBoard.html')
+
+def pdf_play(request):
+    return render(request,'pdfPlay.html')
 
