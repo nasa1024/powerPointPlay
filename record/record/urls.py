@@ -16,7 +16,6 @@ Including another URLconf
 
 from django.conf.urls import url, include
 from django.contrib import admin
-#from upload.views import upload_file
 from upload import views as up_views
 
 
@@ -24,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^paint/$',up_views.paint_board,name='paint'),
     url(r'^upload/$', up_views.upload_file,name='upload'),
+    url(r'^pdf/$',up_views.pdf_play,name='pdf'),
 ]
 
 # upload app
