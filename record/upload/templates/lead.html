@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<title>pdf播放</title>
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="/static/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/multilevelmenu.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/component.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/animations.css" />
+		<script src="/static/js/modernizr.custom.js"></script>
+		<link rel="stylesheet" href="http://dreamsky.github.io/main/blog/common/init.css">
+		<script src="http://dreamsky.github.io/main/blog/common/jquery.min.js"></script>
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<!--script src="http://dreamsky.github.io/main/blog/common/init.js"></script-->
+
+	</head>
+	<body>
+		<div class="pt-triggers">
+			<button id="iterateEffects" class="pt-touch-button" onclick="javascript:this.innerHTML=(this.innerHTML=='画板'?'返回':'画板');">画板</button>
+			<div id="dl-menu" class="dl-menuwrapper">
+				<!--button class="dl-trigger">选择切换效果</button-->
+				<ul class="dl-menu">
+					<li>
+						<a href="#">Move</a>
+						<ul class="dl-submenu">
+							<li data-animation="1"><a href="#">Move to left/ from right</a></li>
+							<li data-animation="2"><a href="#">Move to right/ from left</a></li>
+							<li data-animation="3"><a href="#">Move to top/ from bottom</a></li>
+							<li data-animation="4"><a href="#">Move to bottom/ from top</a></li>
+						</ul>
+					</li>
+					<!--li data-animation="67"><a href="#">Slide</a></li-->
+				</ul>
+				<div class="footer-banner" style="position:absolute;bottom:-350px;left:-200px;width:728px; margin:30px auto"></div>
+			</div><!-- /dl-menu-wrapper-->
+		</div><!-- /triggers -->
+
+		<div id="pt-main" class="pt-perspective">
+			<div class="pt-page pt-page-1">
+				<!-- 需要一个ｊｓ动态获取宽度赋值给ｉｆｒａｍｅ，如果不行就不用ｉｆｒａｍｅ-->
+				<iframe src="{% url 'pdf' %}" id="l1" frameborder="0"></iframe>
+			</div>
+
+			<div class="pt-page pt-page-2">
+                <iframe src="{% url 'paint' %}" id="l2" frameborder="0"></iframe>
+			</div>
+		</div>
+
+		<div class="pt-message">
+			<p>你的浏览器不支持 CSS 动画，请使用 Chrome,Firefox,Safari 等浏览器浏览.</p>
+		</div>
+		<script src="/static/js/jquery.dlmenu.js"></script>
+		<script src="/static/js/pagetransitions.js"></script>
+        <script>
+            pageStyle = "100%";
+            a = document.getElementById("l1");
+            a.style.width = pageStyle;
+            a.style.height = pageStyle;
+            b = document.getElementById("l2");
+            b.style.width = pageStyle;
+            b.style.height = pageStyle;
+        </script>
+    </body>
+</html>

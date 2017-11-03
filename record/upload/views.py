@@ -21,7 +21,7 @@ def upload_file(request):
         if my_form.is_valid():
             f = my_form.cleaned_data['my_file']
             handle_uploaded_file(f)
-            return HttpResponse('success')
+            return HttpResponse(0)
     else:
         my_form = FileUploadForms()
         return render(request, 'index.html', {'form': my_form})
@@ -38,4 +38,7 @@ def paint_board(request):
 
 def pdf_play(request):
     return render(request,'pdfPlay.html')
+
+def leadpage(request):
+    return render(request,'lead.html')
 

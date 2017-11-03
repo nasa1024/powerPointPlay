@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^paint/$',up_views.paint_board,name='paint'),
     url(r'^upload/$', up_views.upload_file,name='upload'),
     url(r'^pdf/$',up_views.pdf_play,name='pdf'),
+    url(r'^lead/$',up_views.leadpage,name='lead'),
 ]
 
 # upload app
