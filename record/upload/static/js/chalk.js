@@ -4,7 +4,7 @@ function chalkboard(){
 	$('#chalkboard').remove();
 	$('.chalk').remove();
 	$('body').prepend('<div class="panel"><a class="link" target="_blank">Save</a></div>');
-	$('body').prepend('<img src="img/bg.png" id="pattern" width=50 height=50>');
+	$('body').prepend('<img src="/static/img/bg.png" id="pattern" width=50 height=50>');
 	$('body').prepend('<canvas id="chalkboard"></canvas>');
 	$('body').prepend('<div class="chalk"></div>');
 
@@ -177,7 +177,7 @@ function chalkboard(){
 
 			var compimage = imgCanvas.toDataURL("image/png");//.replace('image/png','image/octet-stream');
 
-			$('.panel').append('<a href="'+compimage+'" download="chalkboard.png" class="download">Download</a>');
+			$('.panel').append('<a href="'+compimage+'" download="chalkboard.png" class="download">保 存</a>');
 			$('.download').click(function(){
 				IEsave(compimage);
 			});
@@ -195,7 +195,7 @@ function chalkboard(){
 	}
 
 	$(window).resize(function(){
-		 chalkboard();
+		 //chalkboard();
 	});
 
 }

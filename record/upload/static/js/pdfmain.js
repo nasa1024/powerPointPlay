@@ -10,9 +10,14 @@ var pdfDoc = null,
     pageNum = 1,
     pageRendering = false,
     pageNumPending = null,
-    scale = 1.5,
+    scale = 1,
     canvas = document.getElementById('canvas'),
-    ctx = canvas.getContext('2d');
+    ctx = canvas.getContext('2d'),
+    scalechanged = 0;
+
+//动态修改ｐｄｆ的大小
+
+
 
 /**
  * Get page info from document, resize canvas accordingly, and render page.
@@ -20,16 +25,27 @@ var pdfDoc = null,
  */
 function renderPage(num) {
   pageRendering = true;
+  Pwidth = document.body.clientWidth;
+  Pheight = document.body.clientHeight;  //获取当前屏幕用于动态修改ｐｄｆ大小
+
+
   // Using promise to fetch the page
+
   pdfDoc.getPage(num).then(function(page) {
     var viewport = page.getViewport(scale);
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
+    a = Pwidth/viewport.width;
+
+    var view = page.getViewport(a);//重新修改ｐｄｆ的宽度
+
+
+    canvas.height = view.height;
+    canvas.width = view.width;
+    //alert(view.height);
 
     // Render PDF page into canvas context
     var renderContext = {
       canvasContext: ctx,
-      viewport: viewport
+      viewport: view
     };
     var renderTask = page.render(renderContext);
 
@@ -70,7 +86,18 @@ function onPrevPage() {
   pageNum--;
   queueRenderPage(pageNum);
 }
-document.getElementById('prev').addEventListener('click', onPrevPage);
+//document.getElementById('prev').addEventListener('click', onPrevPage);
+
+document.onclick = function (ev) {
+  var oEvent = ev||event;
+  if (oEvent.screenX<document.body.clientWidth/2){
+    onPrevPage();
+  }
+  else {
+    onNextPage();
+  }
+  //alert(oEvent.screenX+'，'+oEvent.screenY)
+}
 
 /**
  * Displays next page.
@@ -82,7 +109,7 @@ function onNextPage() {
   pageNum++;
   queueRenderPage(pageNum);
 }
-document.getElementById('next').addEventListener('click', onNextPage);
+//document.getElementById('next').addEventListener('click', onNextPage);
 
 /**
  * Asynchronously downloads PDF.
